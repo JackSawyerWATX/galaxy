@@ -4,10 +4,11 @@ import numpy as np
 n = 3000
 theta = np.random.rand(n) * 4 * np.pi
 
-r = theta * 0.2
+# Spread stars out more with larger radius scaling
+r = theta * 3.0 + np.random.normal(0, 3, n)  # Add some randomness to break up the spiral
 x = r * np.cos(theta)
 y = r * np.sin(theta)
-z = np.random.rand(n) * 0.2
+z = np.random.normal(0, 4, n)  # Larger vertical scatter for a disk
 
 points = np.column_stack((x, y, z))
 
